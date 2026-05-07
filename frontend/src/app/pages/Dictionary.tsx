@@ -268,7 +268,7 @@ export function Dictionary() {
                   <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     type="text"
-                    placeholder="Ej: agua, tamal, buenos dias..."
+                    placeholder="Ej: conejo, tamal, negro..."
                     value={searchInput}
                     onChange={(e) => {
                       setSearchInput(e.target.value);
@@ -368,7 +368,7 @@ export function Dictionary() {
           </div>
         ) : !shouldShowResults ? (
           <div className="text-center py-10 md:py-16">
-            <p className="text-sm text-slate-500">Ingresa una palabra o selecciona una categoría para ver resultados.</p>
+            <p className="text-sm text-slate-500">Ingresa una palabra o selecciona una categoría para ver resultados. Luego selecciona en el boton de BUSCAR</p>
           </div>
         ) : (
           <div className="space-y-2">

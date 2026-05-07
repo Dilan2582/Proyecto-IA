@@ -5,6 +5,7 @@ import { Navbar } from '../components/Navbar';
 import { ChatMessage, Message } from '../components/ChatMessage';
 import { WordNotFoundDialog } from '../components/WordNotFoundDialog';
 import { WelcomeChatBubble } from '../components/WelcomeChatBubble';
+import { QuetzalTipFloating } from '../components/QuetzalTipFloating';
 import { InputWithSuggestions } from '../components/InputWithSuggestions';
 import { BottomNav } from '../components/BottomNav';
 import { Button } from '../components/ui/button';
@@ -56,6 +57,7 @@ export function Chat() {
   const [showNotFoundDialog, setShowNotFoundDialog] = useState(false);
   const [insertedGamePrompt, setInsertedGamePrompt] = useState(false);
   const [correctResponseCount, setCorrectResponseCount] = useState(0);
+  const [showQuetzalTip, setShowQuetzalTip] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [conversationToDelete, setConversationToDelete] = useState('');
   const [autoSendWord, setAutoSendWord] = useState<string>('');
@@ -356,6 +358,14 @@ export function Chat() {
             }
           : null;
 
+        // Contar mensajes de usuario para insertar quetzal tip
+        const userMessageCount = filtered.filter((m) => m.type === 'user').length;
+        const shouldInsertQuetzalTip = userMessageCount === 1 || (userMessageCount - 1) % 10 === 0;
+        
+        if (shouldInsertQuetzalTip) {
+          setShowQuetzalTip(true);
+        }
+
         return [
           ...filtered,
           systemMessage,
@@ -636,6 +646,11 @@ export function Chat() {
       {showWelcome && showWelcomeBubble && (
         <WelcomeChatBubble onDismiss={() => setShowWelcomeBubble(false)} />
       )}
+
+      <QuetzalTipFloating
+        isVisible={showQuetzalTip}
+        onClose={() => setShowQuetzalTip(false)}
+      />
 
       <BottomNav />
     </div>
