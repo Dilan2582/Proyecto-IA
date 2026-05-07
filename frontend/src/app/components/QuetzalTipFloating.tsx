@@ -17,7 +17,7 @@ export function QuetzalTipFloating({ isVisible, onClose }: QuetzalTipFloatingPro
     const showTimer = setTimeout(() => {
       setIsShowing(true);
       setIsFading(false);
-    }, 2500);
+    }, 1500);
 
     // Fade out comienza 500ms antes del cierre (2500 + 14500 = 17000ms)
     const fadeTimer = setTimeout(() => {
@@ -85,10 +85,13 @@ export function QuetzalTipFloating({ isVisible, onClose }: QuetzalTipFloatingPro
 
         {/* Speech bubble */}
         <div className="speech-bubble-right relative bg-white rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2 max-w-[260px]">
-          <p className="text-base font-semibold text-gray-800 flex-1 leading-snug">
-            ¡Escribe una categoría + la palabra<span className="text-[#4997D0]">completo</span>!{' '}
+            <p className="text-base font-semibold text-gray-800 flex-1 leading-snug">
+            ¡Escribe una categoría + la palabra{' '}
+            <span className="text-[#4997D0]">completo</span>
+            <span className="text-[#4997D0]">!</span>{' '}
+            <br />
             <span className="font-normal text-sm text-gray-500">Ej: animales completo</span>
-          </p>
+            </p>
           <button
             onClick={() => { setIsShowing(false); onClose(); }}
             className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors ml-1"
