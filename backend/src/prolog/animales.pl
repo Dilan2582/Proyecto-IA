@@ -35,14 +35,14 @@ signo(paloma, animales, 'ANI034').
 signo(pato, animales, 'ANI035').
 signo(pavo, animales, 'ANI036').
 signo(perro, animales, 'ANI037').
-signo(pez, animales, 'ANI038').
-signo(pinguino, animales, 'ANI039').
-signo(pollo, animales, 'ANI040').
-signo(raton, animales, 'ANI041').
-signo(tigre, animales, 'ANI042').
-signo(toro, animales, 'ANI043').
-signo(tortuga, animales, 'ANI044').
-signo(vaca, animales, 'ANI045').
+signo(pinguino, animales, 'ANI038').
+signo(pollo, animales, 'ANI039').
+signo(raton, animales, 'ANI040').
+signo(tigre, animales, 'ANI041').
+signo(toro, animales, 'ANI042').
+signo(tortuga, animales, 'ANI043').
+signo(vaca, animales, 'ANI044').
+signo(venado, animales, 'ANI045').
 
 video_youtube('ANI001', 'https://youtu.be/OLQ2EnvcjXM'). % abeja
 video_youtube('ANI002', 'https://youtu.be/beNMxRGOHGE'). % aguila
@@ -82,7 +82,7 @@ video_youtube('ANI035', 'https://youtu.be/VjHC6_4qpq0'). % pato
 video_youtube('ANI036', 'https://youtu.be/umKBjJJ2eMA'). % pavo
 video_youtube('ANI037', 'https://youtu.be/ldpKmaMlUKc'). % perro
 video_youtube('ANI038', 'https://youtu.be/2zoahfM-ELg'). % pinguino
-video_youtube('ANI039', 'https://youtu.be/AvWhTVUGgo8'). % pollo
+video_youtube('ANI039', 'https://youtu.be/AvWhTVUGgo8'). % pinguino
 video_youtube('ANI040', 'https://youtu.be/2mCxaMqjafw'). % raton
 video_youtube('ANI041', 'https://youtu.be/x4Z1hFfu2Q4'). % tigre
 video_youtube('ANI042', 'https://youtu.be/SOjduKUuPkM'). % toro
