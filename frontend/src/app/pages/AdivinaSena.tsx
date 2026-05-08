@@ -150,20 +150,37 @@ function formatearOpcionTexto(texto: string) {
   return texto.replace(/_/g, ' ');
 }
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 async function cargarSignos(categoria: Categoria): Promise<Signo[]> {
+  if (!API_URL) {
+    throw new Error('VITE_API_URL no está configurada');
+  }
+
   if (categoria === 'mixta') {
     const todas = await Promise.all(
-      CATS_BACKEND.map(cat =>
-        fetch(`/api/categorias/${cat}`)
-          .then(r => r.json())
-          .then(d => d.signos as Signo[])
-      )
+      CATS_BACKEND.map(async (cat) => {
+        const response = await fetch(`${API_URL}/api/categorias/${cat}`);
+
+        if (!response.ok) {
+          throw new Error(`Error al cargar categoría ${cat}: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.signos as Signo[];
+      })
     );
 
     return todas.flat().filter(s => s.url_video);
   }
 
-  const data = await fetch(`/api/categorias/${categoria}`).then(r => r.json());
+  const response = await fetch(`${API_URL}/api/categorias/${categoria}`);
+
+  if (!response.ok) {
+    throw new Error(`Error al cargar categoría ${categoria}: ${response.status}`);
+  }
+
+  const data = await response.json();
   return (data.signos as Signo[]).filter(s => s.url_video);
 }
 
